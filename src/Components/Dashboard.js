@@ -1,41 +1,28 @@
 import React from 'react'
 import "./dashboard.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { nameChange, numberDecrement, numberIncrement } from '../store/reducers/number'
+import { decrement, increment, numberSliceSelector } from '../store/reducers/numberSlice'
+import LaptopComponent from './LaptopComponent'
+
+
 const Dashboard = () => {
 
-    const handleClick = () => {
-        document.getElementById('5').innerHTML = "You Changed Hello"
-    }
-
-    const handleClickcss = () => {
-        document.getElementById("6").style.fontSize = '30px'
-    }
-
-    const num = useSelector((store) => store.number)
-
-    const cha = useSelector((store) => store.alexa)
-
+    // const num = useSelector(numberSliceSelector)
+    // const num = useSelector((store) => store.numberSlice)
+    const num = useSelector(numberSliceSelector)
+    console.log(num)
     const dispatch = useDispatch()
 
     return (
         <div>
-            <div id='5'>Hello</div>
-            <div>Say Hello</div>
-            <div className='bulb'></div>
-            <button onClick={handleClick}>Click me</button>
+            {/* <div><h1>{num.number}</h1></div> */}
+            <div><h1>{num.number}</h1></div>
+            <div>Hey</div>
+            <button onClick={() => dispatch(increment(2))}>INCREMENT</button>
+            <button onClick={() => dispatch(decrement(5))}>DECREMENT</button>
             <div><hr /></div>
-            <div id='6'>NEXT</div>
-            <button onClick={handleClickcss}>Changed font size</button>
-            <div><hr /></div>
-            <div><hr /></div>
-            <div>{num}</div>
-
-            <button onClick={() => dispatch(numberIncrement())}>Increment</button>
-            <button onClick={() => dispatch(numberDecrement())}> Deccrement</button>
-            <div><hr /></div>
-            <div>{cha}</div>
-            <button onClick={() => dispatch(nameChange())}>change Name</button>
+            <div><LaptopComponent /></div>
+       <div>now</div>
         </div >
     )
 
