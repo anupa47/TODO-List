@@ -1,5 +1,12 @@
-.modal {
+.form {
+    display: flex;
+    justify-content: center;
     padding: 25px 38px;
+}
+
+.modal {
+    width: 100%;
+    max-width: 800px;
 }
 
 .modal-container {
@@ -49,6 +56,9 @@
     margin-top: 20px;
     border-radius: 10px;
     padding: 20px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-container-list-message {
@@ -143,47 +153,55 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    /* max-width: 500px; */
-    gap: 20px;
 }
 
 .modal-container-data-list {
     display: flex;
     margin-bottom: 10px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.checkbox {
+    box-sizing: border-box;
+    height: 30px;
 }
 
 .modal-container-list-title {
-    width: 90px;
-    background-color: red;
+    width: 150px;
     display: flex;
     align-items: center;
+    margin-left:20px ;
 }
 
 .modal-container-list-status {
-    width: 200px;
-    background-color: yellow;
+    width: calc(100% - 310px);
     display: flex;
     align-items: center;
 }
 
 .modal-container-delete-data-icon {
-    background-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 16 16" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="fill: rgb(255, 255, 255); opacity: 1; transform: rotate(0deg) scale(0.7, 0.7);"><g><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path></g></svg>');
-    background-color: red;
+    background-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 16 16" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="fill: rgb(88,88,88); opacity: 1; transform: rotate(0deg) scale(0.7, 0.7);"><g><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path></g></svg>');
     width: 40px;
     height: 30px;
     margin-left: 20px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 30px;
+    background-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #EEEEEE;
 }
 
 .modal-container-edit-data-icon {
-    background-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 16 16" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="fill: rgb(255, 255, 255); opacity: 1; transform: rotate(0deg) scale(0.7, 0.7);"><g><path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"></path></g></svg>');
-    background-color: red;
+    background-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 16 16" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="fill: rgb(88,88,88); opacity: 1; transform: rotate(0deg) scale(0.7, 0.7);"><g><path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"></path></g></svg>');
     width: 40px;
+    background-size: 25px;
+    border-radius: 5px;
     height: 30px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 30px;
     margin-left: 20px;
+    background-color: #EEEEEE;
 }
