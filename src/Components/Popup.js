@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Popup = ({ handleClosePopup, addTask }) => {
+const Popup = ({ handleClosePopup, addTask, taskToEdit }) => {
     const [title, setTitle] = useState('')
     const [status, setStatus] = useState('Completed')
+
+    useEffect(() => {
+        if (taskToEdit) {
+            setTitle(taskToEdit.title)
+            setStatus(taskToEdit.status)
+        }
+    }, [taskToEdit])
 
     const handleSubmit = () => {
         const newTask = { title, status }
@@ -12,7 +19,7 @@ const Popup = ({ handleClosePopup, addTask }) => {
 
     return (
         <div className='popup-form'>
-            <div className='popup-header'>Add TODO</div>
+            <div className='popup-header'>{taskToEdit ? 'EDIT TODO' : 'Add TODO'}</div>
             <div>
                 <label>Title</label><br />
                 <input
@@ -34,7 +41,7 @@ const Popup = ({ handleClosePopup, addTask }) => {
                 </select>
             </div>
             <div className='popup-buttons'>
-                <div className='modal-add-task-button' onClick={handleSubmit}>Add Task</div>
+                <div className='modal-add-task-button' onClick={handleSubmit}>{taskToEdit ? 'Update' : 'Add Task'}</div>
                 <div className='popup-close-button' onClick={handleClosePopup}>Cancel</div>
             </div>
         </div >
