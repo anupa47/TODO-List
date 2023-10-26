@@ -6,6 +6,7 @@ const Dashboard = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false)
     const [tasks, setTasks] = useState([])
     const [editTaskIndex, setEditTaskIndex] = useState(null)
+    const [selectedFilter, setSelectedFilter] = useState('All')
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem('tasks')) || []
@@ -53,6 +54,13 @@ const Dashboard = () => {
         localStorage.setItem('tasks', JSON.stringify(updatedTasks))
     }
 
+    const handleCheckboxChange = (index) => {
+        const updatedTasks = [...tasks];
+        updatedTasks[index].status = updatedTasks[index].status === 'Completed' ? 'Incompleted' : 'Completed';
+        setTasks(updatedTasks);
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    }
+
     return (
         <div className='form'>
             <div className='modal'>
@@ -60,7 +68,10 @@ const Dashboard = () => {
                     <div className='modal-container-title'>TODO LIST</div>
                     <div className='modal-add-select-button-line'>
                         <div className='modal-add-task-button' onClick={handleOpenPopup}>Add Task</div>
-                        <select className='modal-select-button'>
+                        <select className='modal-select-button'
+                            value={selectedFilter} // Step 2
+                            onChange={(e) => setSelectedFilter(e.target.value)}
+                        >
                             <option>All</option>
                             <option>Incomplete</option>
                             <option>Completed</option>
@@ -71,7 +82,13 @@ const Dashboard = () => {
                             tasks.map((tasks, index) => (
                                 <div className='modal-container-data' key={index}>
                                     <div className='modal-container-data-list'>
-                                        <diV><input type='checkbox' className='checkbox'></input></diV>
+                                        <input
+                                            type='checkbox'
+                                            className='checkbox'
+                                            checked={tasks.status === 'Completed'}
+                                            onChange={() => handleCheckboxChange(index)}
+                                        >
+                                        </input>
                                         <div className='modal-container-list-title'>
                                             <div>{tasks.title}</div>
                                             <div className='time'>
@@ -108,5 +125,7 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
+
 
 

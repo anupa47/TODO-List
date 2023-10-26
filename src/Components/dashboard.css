@@ -17,7 +17,8 @@
 .modal-container-title {
     text-align: center;
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 800;
+    color: #646681 ;
 }
 
 .modal-add-select-button-line {
@@ -47,8 +48,10 @@
     border: 1px solid #CCCDDE;
     width: 130px;
     padding: 10px 10px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
+    color: #585876;
+    font-size: 15px;
 }
 
 .modal-container-list {
@@ -147,6 +150,11 @@
     font-weight: 500;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.popup-close-button:hover{
+    background-color: red;
+    color: #FFFFFF;
 }
 
 .modal-container-data {
